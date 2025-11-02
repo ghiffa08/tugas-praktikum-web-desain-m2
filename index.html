@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hai Hotel - Luxury Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-gold: #d4af37;
+        --primary-dark: #1a1a1a;
+        --secondary-dark: #2d2d2d;
+        --text-light: #f5f5f5;
+        --bg-light: #fafafa;
+        --border-subtle: #e5e5e5;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      .heading-font {
+        font-family: "Playfair Display", serif;
+      }
+
+      /* Header Styling */
+      header {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        padding: 2rem 3rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-gold) 0%,
+          #f4e5c3 50%,
+          var(--primary-gold) 100%
+        );
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .header-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary-gold);
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      .header-logo::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--primary-gold);
+      }
+
+      .header-info {
+        display: flex;
+        gap: 2rem;
+        color: #ccc;
+        font-size: 0.9rem;
+      }
+
+      .header-info-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .header-info-item i {
+        color: var(--primary-gold);
+      }
+
+      /* Navigation */
+      nav {
+        background: #2d2d2d;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+      }
+
+      nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      nav > ul > li > a {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 1.2rem 2rem;
+        color: #e5e5e5;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      nav > ul > li > a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--primary-gold);
+        transition: width 0.3s ease;
+      }
+
+      nav > ul > li > a:hover::before {
+        width: 80%;
+      }
+
+      nav > ul > li > a:hover {
+        color: var(--primary-gold);
+        background: rgba(212, 175, 55, 0.05);
+      }
+
+      /* Dropdown Menus */
+      nav ul ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #2d2d2d;
+        min-width: 280px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        border-top: 2px solid var(--primary-gold);
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li:hover > ul {
+        display: block;
+      }
+
+      nav ul ul li a {
+        padding: 1rem 1.5rem;
+        color: #d5d5d5;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+
+      nav ul ul li a:hover {
+        background: rgba(212, 175, 55, 0.1);
+        border-left-color: var(--primary-gold);
+        color: var(--primary-gold);
+        padding-left: 2rem;
+      }
+
+      nav ul ul ul {
+        left: 100%;
+        top: 0;
+      }
+
+      /* Main Content */
+      .main-wrapper {
+        max-width: 1400px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+        width: 100%;
+      }
+
+      /* Sidebar */
+      aside {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        height: fit-content;
+        position: sticky;
+        top: 100px;
+      }
+
+      .aside-heading {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--primary-gold);
+      }
+
+      .youtube-embed {
+        border-radius: 10px;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        margin-bottom: 1rem;
+      }
+
+      .youtube-embed iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      .sidebar-info {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+        border-radius: 8px;
+        border-left: 4px solid var(--primary-gold);
+      }
+
+      .sidebar-info h3 {
+        font-weight: 600;
+        color: var(--primary-dark);
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .sidebar-info p {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Content Section */
+      #content-frame {
+        background: white;
+        border-radius: 12px;
+        padding: 3rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        min-height: 600px;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .content-heading {
+        font-family: "Playfair Display", serif;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .content-heading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: var(--primary-gold);
+      }
+
+      .content-paragraph {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 2.5rem;
+      }
+
+      /* Image Grid */
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .image-grid-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        transition: all 0.4s ease;
+        aspect-ratio: 4/3;
+      }
+
+      .image-grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .image-grid-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .image-grid-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .image-grid-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 60%,
+          rgba(0, 0, 0, 0.7)
+        );
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .image-grid-item:hover::before {
+        opacity: 1;
+      }
+
+      /* ============================================
+           FULLY RESPONSIVE TABLE STYLING
+           ============================================ */
+
+      .table-container {
+        margin-top: 2.5rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        background: white;
+        width: 100%;
+      }
+
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .table-responsive::-webkit-scrollbar {
+        height: 10px;
+      }
+
+      .table-responsive::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .table-responsive::-webkit-scrollbar-thumb {
+        background: var(--primary-gold);
+        border-radius: 10px;
+      }
+
+      .table-responsive::-webkit-scrollbar-thumb:hover {
+        background: #b8941f;
+      }
+
+      .data-table {
+        width: 100%;
+        min-width: 800px;
+        border-collapse: collapse;
+        background: white;
+        font-size: 0.95rem;
+      }
+
+      /* Table Header */
+      .data-table thead {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        position: relative;
+      }
+
+      .data-table thead::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--primary-gold);
+      }
+
+      .data-table th {
+        padding: 1.2rem 1rem;
+        text-align: left;
+        color: white;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        position: relative;
+      }
+
+      .data-table th i {
+        color: var(--primary-gold);
+        margin-right: 0.5rem;
+      }
+
+      /* Table Body */
+      .data-table tbody tr {
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+      }
+
+      .data-table tbody tr:hover {
+        background: linear-gradient(90deg, #fafafa 0%, #f5f5f5 100%);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      .data-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .data-table td {
+        padding: 1.2rem 1rem;
+        color: #444;
+        vertical-align: middle;
+        line-height: 1.6;
+      }
+
+      /* ID Column */
+      .data-table td:first-child {
+        font-weight: 700;
+        color: var(--primary-dark);
+        font-size: 0.95rem;
+      }
+
+      /* Image in Table */
+      .table-image {
+        max-width: 120px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+        cursor: pointer;
+        display: block;
+      }
+
+      .table-image:hover {
+        transform: scale(1.5);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+        z-index: 100;
+        position: relative;
+        border: 3px solid var(--primary-gold);
+      }
+
+      /* Price Column */
+      .price {
+        color: var(--primary-gold);
+        font-weight: 700;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+
+      /* Badge Styles */
+      .badge {
+        display: inline-block;
+        padding: 0.4rem 0.9rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+
+      .badge-success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+      }
+
+      .badge-danger {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        color: white;
+      }
+
+      .badge-info {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+      }
+
+      /* Facility Tags */
+      .facility-tag {
+        display: inline-block;
+        padding: 0.3rem 0.7rem;
+        margin: 0.2rem;
+        background: #f3f4f6;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        color: #555;
+        border-left: 3px solid var(--primary-gold);
+        white-space: nowrap;
+      }
+
+      /* Table Icons */
+      .table-icon {
+        color: var(--primary-gold);
+        margin-right: 0.4rem;
+        font-size: 1rem;
+      }
+
+      /* Status Indicator */
+      .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .status-dot.active {
+        background: #10b981;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+      }
+
+      .status-dot.inactive {
+        background: #ef4444;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+      }
+
+      /* Card Layout untuk Mobile */
+      @media (max-width: 768px) {
+        .table-responsive {
+          display: block;
+        }
+
+        .data-table {
+          min-width: 100%;
+        }
+
+        .data-table thead {
+          display: none;
+        }
+
+        .data-table tbody tr {
+          display: block;
+          margin-bottom: 1.5rem;
+          border: 1px solid #e5e5e5;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .data-table tbody tr:hover {
+          transform: none;
+        }
+
+        .data-table td {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+          border-bottom: 1px solid #f0f0f0;
+          text-align: right;
+        }
+
+        .data-table td:last-child {
+          border-bottom: none;
+        }
+
+        .data-table td::before {
+          content: attr(data-label);
+          font-weight: 700;
+          color: var(--primary-dark);
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          letter-spacing: 0.5px;
+          text-align: left;
+        }
+
+        .data-table td:first-child {
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+          color: var(--primary-gold);
+          font-size: 1.1rem;
+          padding: 1.2rem;
+        }
+
+        .data-table td:first-child::before {
+          color: var(--primary-gold);
+        }
+
+        .table-image {
+          max-width: 150px;
+          height: 100px;
+        }
+
+        .facility-tag {
+          display: block;
+          margin: 0.3rem 0;
+        }
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          var(--secondary-dark) 100%
+        );
+        color: #ccc;
+        padding: 3rem 2rem;
+        margin-top: 4rem;
+        position: relative;
+        width: 100%;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-gold) 0%,
+          #f4e5c3 50%,
+          var(--primary-gold) 100%
+        );
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .footer-content p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+
+      .footer-content .gold {
+        color: var(--primary-gold);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .main-wrapper {
+          padding: 0 1.5rem;
+        }
+
+        #content-frame {
+          padding: 2rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        main {
+          grid-template-columns: 1fr;
+        }
+
+        aside {
+          position: static;
+        }
+
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .header-info {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        nav > ul {
+          flex-direction: column;
+        }
+
+        nav ul ul {
+          position: static;
+          box-shadow: none;
+          border-top: none;
+          border-left: 3px solid var(--primary-gold);
+          margin-left: 1rem;
+        }
+
+        nav ul ul ul {
+          left: 0;
+        }
+
+        header {
+          padding: 1.5rem 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-logo {
+          font-size: 2rem;
+        }
+
+        .content-heading {
+          font-size: 1.8rem;
+        }
+
+        #content-frame {
+          padding: 1.5rem;
+        }
+
+        .image-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .content-paragraph {
+          font-size: 1rem;
+        }
+
+        .main-wrapper {
+          padding: 0 1rem;
+          margin: 2rem auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-logo {
+          font-size: 1.5rem;
+        }
+
+        #content-frame {
+          padding: 1rem;
+        }
+
+        .content-heading {
+          font-size: 1.5rem;
+        }
+
+        header {
+          padding: 1rem;
+        }
+
+        .aside-heading {
+          font-size: 1.2rem;
+        }
+
+        aside {
+          padding: 1.5rem;
+        }
+      }
+
+      /* Loading Animation */
+      .fade-in {
+        animation: fadeInUp 0.6s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll to top button */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-gold);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        z-index: 1000;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+      }
+
+      .scroll-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <div class="header-logo">HAI HOTEL</div>
+        <div class="header-info">
+          <div class="header-info-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+62 812-3456-7890</span>
+          </div>
+          <div class="header-info-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@haihotel.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li>
+          <a href="#" onclick="showContent('home')"
+            ><i class="fas fa-home"></i> Home</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showContent('kamar')"
+            ><i class="fas fa-bed"></i> Kamar</a
+          >
+        </li>
+        <li>
+          <a href="#"
+            ><i class="fas fa-spa"></i> Fasilitas
+            <i class="fas fa-chevron-down text-xs"></i
+          ></a>
+          <ul>
+            <li>
+              <a href="#" onclick="showContent('fasilitas-utama')"
+                ><i class="fas fa-swimming-pool"></i> Kolam Renang</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="showContent('fasilitas-utama')"
+                ><i class="fas fa-dumbbell"></i> Pusat Kebugaran</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="showContent('fasilitas-utama')"
+                ><i class="fas fa-hotel"></i> Ruang Rapat</a
+              >
+            </li>
+            <li>
+              <a href="#" onclick="showContent('fasilitas-utama')"
+                ><i class="fas fa-leaf"></i> Spa & Wellness</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" onclick="showContent('pemesanan')"
+            ><i class="fas fa-clipboard-list"></i> Pesan Sekarang</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <main>
+        <!-- Sidebar -->
+        <aside class="fade-in">
+          <h2 class="aside-heading">Video Tur</h2>
+          <div class="youtube-embed">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/u9vK5utTcxE?si=IBCczwU11_l2ELU_"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="sidebar-info">
+            <h3>
+              <i class="fas fa-star" style="color: var(--primary-gold)"></i>
+              Tentang Kami
+            </h3>
+            <p>
+              Nikmati pengalaman menginap mewah dengan pemandangan spektakuler
+              dan layanan kelas dunia. Setiap detail dirancang untuk kenyamanan
+              maksimal Anda.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Content Frame -->
+        <section id="content-frame">
+          <!-- HOME PAGE -->
+          <div id="page-home" class="fade-in">
+            <h1 class="content-heading">Selamat Datang di Hai Hotel</h1>
+            <p class="content-paragraph">
+              Rasakan kemewahan dan kenyamanan tak tertandingi di hotel bintang
+              lima kami. Dengan arsitektur modern, fasilitas premium, dan
+              pelayanan istimewa, kami siap memberikan pengalaman menginap yang
+              tak terlupakan.
+            </p>
+            <div class="image-grid">
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=Lobby+Mewah"
+                  alt="Lobby Hotel"
+                />
+              </div>
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=Presidential+Suite"
+                  alt="Suite Eksklusif"
+                />
+              </div>
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=Infinity+Pool"
+                  alt="Kolam Renang"
+                />
+              </div>
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=Fine+Dining"
+                  alt="Restoran"
+                />
+              </div>
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=Spa+%26+Wellness"
+                  alt="Spa"
+                />
+              </div>
+              <div class="image-grid-item">
+                <img
+                  src="https://placehold.co/600x400/1a1a1a/d4af37?text=City+View"
+                  alt="Pemandangan"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- KAMAR PAGE -->
+          <div id="page-kamar" style="display: none">
+            <h1 class="content-heading">Pilihan Kamar Kami</h1>
+            <p class="content-paragraph">
+              Setiap kamar dirancang dengan perhatian detail untuk memberikan
+              kenyamanan maksimal. Pilih dari berbagai tipe kamar yang sesuai
+              dengan kebutuhan Anda.
+            </p>
+            <div class="table-container">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th><i class="fas fa-hashtag"></i> ID</th>
+                      <th><i class="fas fa-image"></i> Preview</th>
+                      <th><i class="fas fa-bed"></i> Tipe Kamar</th>
+                      <th><i class="fas fa-tag"></i> Harga / Malam</th>
+                      <th><i class="fas fa-list"></i> Fasilitas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="ID">K001</td>
+                      <td data-label="Preview">
+                        <img
+                          src="https://placehold.co/300x200/1a1a1a/d4af37?text=Deluxe+Room"
+                          alt="Deluxe Room"
+                          class="table-image"
+                        />
+                      </td>
+                      <td data-label="Tipe Kamar">
+                        <strong>Deluxe Room</strong>
+                      </td>
+                      <td data-label="Harga / Malam" class="price">
+                        Rp 1.500.000
+                      </td>
+                      <td data-label="Fasilitas">
+                        <span class="facility-tag"
+                          ><i class="fas fa-snowflake table-icon"></i>AC</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-tv table-icon"></i>Smart TV
+                          55"</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-wifi table-icon"></i>Wi-Fi
+                          Ultra</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-hot-tub table-icon"></i>Bathtub
+                          Jacuzzi</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-coffee table-icon"></i>Sarapan
+                          Premium</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">K002</td>
+                      <td data-label="Preview">
+                        <img
+                          src="https://placehold.co/300x200/1a1a1a/d4af37?text=Executive+Suite"
+                          alt="Suite Room"
+                          class="table-image"
+                        />
+                      </td>
+                      <td data-label="Tipe Kamar">
+                        <strong>Executive Suite</strong>
+                      </td>
+                      <td data-label="Harga / Malam" class="price">
+                        Rp 3.000.000
+                      </td>
+                      <td data-label="Fasilitas">
+                        <span class="facility-tag"
+                          ><i class="fas fa-couch table-icon"></i>Living
+                          Room</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-tv table-icon"></i>Smart TV
+                          65"</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-hot-tub table-icon"></i
+                          >Jacuzzi</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-wine-glass table-icon"></i>Minibar
+                          Premium</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-concierge-bell table-icon"></i
+                          >Butler Service</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">K003</td>
+                      <td data-label="Preview">
+                        <img
+                          src="https://placehold.co/300x200/1a1a1a/d4af37?text=Standard+Room"
+                          alt="Standard Room"
+                          class="table-image"
+                        />
+                      </td>
+                      <td data-label="Tipe Kamar">
+                        <strong>Standard Room</strong>
+                      </td>
+                      <td data-label="Harga / Malam" class="price">
+                        Rp 800.000
+                      </td>
+                      <td data-label="Fasilitas">
+                        <span class="facility-tag"
+                          ><i class="fas fa-snowflake table-icon"></i>AC</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-tv table-icon"></i>Smart TV
+                          43"</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-wifi table-icon"></i>Wi-Fi</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-shower table-icon"></i>Rain
+                          Shower</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-coffee table-icon"></i>Sarapan</span
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">K004</td>
+                      <td data-label="Preview">
+                        <img
+                          src="https://placehold.co/300x200/1a1a1a/d4af37?text=Presidential+Suite"
+                          alt="Presidential Suite"
+                          class="table-image"
+                        />
+                      </td>
+                      <td data-label="Tipe Kamar">
+                        <strong>Presidential Suite</strong>
+                      </td>
+                      <td data-label="Harga / Malam" class="price">
+                        Rp 10.000.000
+                      </td>
+                      <td data-label="Fasilitas">
+                        <span class="facility-tag"
+                          ><i class="fas fa-mountain table-icon"></i>Panoramic
+                          View</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-hot-tub table-icon"></i>Private
+                          Jacuzzi</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-utensils table-icon"></i>Chef
+                          Pribadi</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-user-tie table-icon"></i>Butler
+                          24/7</span
+                        >
+                        <span class="facility-tag"
+                          ><i class="fas fa-film table-icon"></i>Home
+                          Theater</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- FASILITAS PAGE -->
+          <div id="page-fasilitas-utama" style="display: none">
+            <h1 class="content-heading">Fasilitas Premium</h1>
+            <p class="content-paragraph">
+              Nikmati berbagai fasilitas kelas dunia yang dirancang untuk
+              kesehatan, relaksasi, dan produktivitas Anda selama menginap.
+            </p>
+            <div class="table-container">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th><i class="fas fa-hashtag"></i> ID</th>
+                      <th><i class="fas fa-building"></i> Nama</th>
+                      <th><i class="fas fa-check-circle"></i> Amenities</th>
+                      <th><i class="fas fa-calendar-week"></i> Weekend</th>
+                      <th><i class="fas fa-calendar-day"></i> Weekday</th>
+                      <th><i class="fas fa-users"></i> Kapasitas</th>
+                      <th><i class="fas fa-clock"></i> Jam</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="ID">F01</td>
+                      <td data-label="Nama Fasilitas">
+                        <strong
+                          ><i class="fas fa-swimming-pool table-icon"></i
+                          >Infinity Pool Premium</strong
+                        >
+                      </td>
+                      <td data-label="Amenities">
+                        <span class="facility-tag">Handuk Premium</span>
+                        <span class="facility-tag">Private Locker</span>
+                        <span class="facility-tag">Welcome Drinks</span>
+                        <span class="facility-tag">Poolside Service</span>
+                      </td>
+                      <td data-label="Harga Weekend" class="price">
+                        Rp 150.000
+                      </td>
+                      <td data-label="Harga Weekday" class="price">
+                        Rp 100.000
+                      </td>
+                      <td data-label="Kapasitas">
+                        <span class="badge badge-info">50 Orang</span>
+                      </td>
+                      <td data-label="Jam Operasional">
+                        <div class="status-indicator">
+                          <span class="status-dot active"></span>
+                          08:00 - 20:00
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">F02</td>
+                      <td data-label="Nama Fasilitas">
+                        <strong
+                          ><i class="fas fa-dumbbell table-icon"></i>Elite
+                          Fitness Center</strong
+                        >
+                      </td>
+                      <td data-label="Amenities">
+                        <span class="facility-tag">Technogym Equipment</span>
+                        <span class="facility-tag">Personal Trainer</span>
+                        <span class="facility-tag">Sauna</span>
+                        <span class="facility-tag">Protein Bar</span>
+                      </td>
+                      <td data-label="Harga Weekend" class="price">
+                        Rp 75.000
+                      </td>
+                      <td data-label="Harga Weekday" class="price">
+                        Rp 50.000
+                      </td>
+                      <td data-label="Kapasitas">
+                        <span class="badge badge-info">20 Orang</span>
+                      </td>
+                      <td data-label="Jam Operasional">
+                        <div class="status-indicator">
+                          <span class="status-dot active"></span>
+                          06:00 - 22:00
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">F03</td>
+                      <td data-label="Nama Fasilitas">
+                        <strong
+                          ><i class="fas fa-hotel table-icon"></i>Grand Ballroom
+                          Melati</strong
+                        >
+                      </td>
+                      <td data-label="Amenities">
+                        <span class="facility-tag">4K Projector</span>
+                        <span class="facility-tag">Bose Sound</span>
+                        <span class="facility-tag">Fiber Wi-Fi</span>
+                        <span class="facility-tag">Catering</span>
+                      </td>
+                      <td data-label="Harga Weekend" class="price">
+                        Rp 500.000/jam
+                      </td>
+                      <td data-label="Harga Weekday" class="price">
+                        Rp 400.000/jam
+                      </td>
+                      <td data-label="Kapasitas">
+                        <span class="badge badge-info">30 Orang</span>
+                      </td>
+                      <td data-label="Jam Operasional">
+                        <div class="status-indicator">
+                          <span class="status-dot active"></span>
+                          08:00 - 17:00
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="ID">F04</td>
+                      <td data-label="Nama Fasilitas">
+                        <strong
+                          ><i class="fas fa-leaf table-icon"></i>Luxury Spa &
+                          Wellness</strong
+                        >
+                      </td>
+                      <td data-label="Amenities">
+                        <span class="facility-tag">Balinese Massage</span>
+                        <span class="facility-tag">Aromatherapy</span>
+                        <span class="facility-tag">Sauna</span>
+                        <span class="facility-tag">Organic Treatment</span>
+                      </td>
+                      <td data-label="Harga Weekend" class="price">
+                        Rp 300.000
+                      </td>
+                      <td data-label="Harga Weekday" class="price">
+                        Rp 250.000
+                      </td>
+                      <td data-label="Kapasitas">
+                        <span class="badge badge-info">10 Orang</span>
+                      </td>
+                      <td data-label="Jam Operasional">
+                        <div class="status-indicator">
+                          <span class="status-dot active"></span>
+                          10:00 - 21:00
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- PEMESANAN PAGE -->
+          <div id="page-pemesanan" style="display: none">
+            <h1 class="content-heading">Riwayat Pemesanan</h1>
+            <p class="content-paragraph">
+              Lihat dan kelola semua pemesanan Anda dengan mudah. Sistem kami
+              memastikan setiap detail reservasi tercatat dengan akurat.
+            </p>
+            <div class="table-container">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th><i class="fas fa-hashtag"></i> ID</th>
+                      <th><i class="fas fa-calendar-plus"></i> Tgl Booking</th>
+                      <th><i class="fas fa-user"></i> Tamu</th>
+                      <th><i class="fas fa-bed"></i> Kamar</th>
+                      <th><i class="fas fa-sign-in-alt"></i> Check-In</th>
+                      <th><i class="fas fa-sign-out-alt"></i> Check-Out</th>
+                      <th><i class="fas fa-plus-circle"></i> Fasilitas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-label="Booking ID">P001</td>
+                      <td data-label="Tanggal Booking">01 Nov 2025</td>
+                      <td data-label="Nama Tamu">
+                        <strong>Budi Santoso</strong>
+                      </td>
+                      <td data-label="Tipe Kamar">Deluxe Room</td>
+                      <td data-label="Check-In">10 Nov 2025</td>
+                      <td data-label="Check-Out">12 Nov 2025</td>
+                      <td data-label="Fasilitas Tambahan">
+                        <span class="badge badge-success">
+                          <i class="fas fa-check"></i> Infinity Pool
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Booking ID">P002</td>
+                      <td data-label="Tanggal Booking">02 Nov 2025</td>
+                      <td data-label="Nama Tamu">
+                        <strong>Citra Lestari</strong>
+                      </td>
+                      <td data-label="Tipe Kamar">Executive Suite</td>
+                      <td data-label="Check-In">15 Nov 2025</td>
+                      <td data-label="Check-Out">16 Nov 2025</td>
+                      <td data-label="Fasilitas Tambahan">
+                        <span class="badge badge-danger">
+                          <i class="fas fa-times"></i> Tidak Ada
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Booking ID">P003</td>
+                      <td data-label="Tanggal Booking">05 Nov 2025</td>
+                      <td data-label="Nama Tamu">
+                        <strong>Dewi Anggraini</strong>
+                      </td>
+                      <td data-label="Tipe Kamar">Standard Room</td>
+                      <td data-label="Check-In">20 Nov 2025</td>
+                      <td data-label="Check-Out">21 Nov 2025</td>
+                      <td data-label="Fasilitas Tambahan">
+                        <span class="badge badge-success">
+                          <i class="fas fa-check"></i> Fitness Center
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td data-label="Booking ID">P004</td>
+                      <td data-label="Tanggal Booking">08 Nov 2025</td>
+                      <td data-label="Nama Tamu">
+                        <strong>Eko Prasetyo</strong>
+                      </td>
+                      <td data-label="Tipe Kamar">Presidential Suite</td>
+                      <td data-label="Check-In">25 Nov 2025</td>
+                      <td data-label="Check-Out">28 Nov 2025</td>
+                      <td data-label="Fasilitas Tambahan">
+                        <span class="badge badge-success">
+                          <i class="fas fa-check"></i> Spa & Pool
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p
+          class="heading-font"
+          style="
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+          "
+        >
+          HAI HOTEL
+        </p>
+        <p>
+          &copy; 2024 <span class="gold">Hai Hotel</span>. All Rights Reserved.
+        </p>
+        <p style="margin-top: 0.5rem">
+          Jl. Mewah Raya No. 123, Jakarta Selatan 12345, Indonesia
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #999">
+          Designed with Excellence & Elegance
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function showContent(pageId) {
+        const pages = [
+          "page-home",
+          "page-kamar",
+          "page-fasilitas-utama",
+          "page-pemesanan",
+        ];
+        pages.forEach((id) => {
+          const element = document.getElementById(id);
+          if (element) {
+            element.style.display = "none";
+          }
+        });
+
+        const pageToShow = document.getElementById("page-" + pageId);
+        if (pageToShow) {
+          pageToShow.style.display = "block";
+          pageToShow.classList.add("fade-in");
+          document
+            .getElementById("content-frame")
+            .scrollIntoView({ behavior: "smooth" });
+        } else {
+          document.getElementById("page-home").style.display = "block";
+        }
+      }
+
+      // Scroll to top functionality
+      const scrollTopBtn = document.getElementById("scrollTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", function () {
+        showContent("home");
+      });
+    </script>
+  </body>
+</html>
